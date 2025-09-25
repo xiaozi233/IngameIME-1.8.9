@@ -1,8 +1,15 @@
 {
-  "package": "${basePackage}.mixin",
-  "plugin": "${basePackage}.init.AutoDiscoveryMixinPlugin",
-  "refmap": "mixins.${modid}.refmap.json",
+  "required": true,
   "minVersion": "0.7",
+  "package": "com.dhj.ingameime.mixins",
   "compatibilityLevel": "JAVA_8",
-  "__comment": "You do not need to manually register mixins in this template. Check the auto discovery mixin plugin for more info."
+  "refmap": "mixins.ingameime.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "MixinGuiScreen",
+    "MixinGuiTextField",
+    "MixinMinecraft",
+    "MixinGuiEditSign"
+  ]
 }
