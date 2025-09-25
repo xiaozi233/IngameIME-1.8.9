@@ -21,8 +21,8 @@ public class WidgetPreEdit extends Widget {
     public void layout() {
         if (!isDirty) return;
         if (isActive()) {
-            Width = Minecraft.getMinecraft().fontRenderer.getStringWidth(Content) + CursorWidth;
-            Height = Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT;
+            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(Content) + CursorWidth;
+            Height = Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
         } else {
             Width = Height = 0;
         }
@@ -56,9 +56,9 @@ public class WidgetPreEdit extends Widget {
         super.draw();
         String beforeCursor = Content.substring(0, Cursor);
         String afterCursor = Content.substring(Cursor);
-        int x = Minecraft.getMinecraft().fontRenderer.drawString(beforeCursor, X + Padding, Y + Padding, TextColor);
+        int x = Minecraft.getMinecraft().fontRendererObj.drawString(beforeCursor, X + Padding, Y + Padding, TextColor);
         // Cursor
         drawRect(x + 1, Y + Padding, x + 2, Y + Padding + Height, TextColor);
-        Minecraft.getMinecraft().fontRenderer.drawString(afterCursor, x + CursorWidth, Y + Padding, TextColor);
+        Minecraft.getMinecraft().fontRendererObj.drawString(afterCursor, x + CursorWidth, Y + Padding, TextColor);
     }
 }

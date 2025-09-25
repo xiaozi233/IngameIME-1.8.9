@@ -84,18 +84,18 @@ public class WidgetCandidateList extends Widget {
 
         // Index area width equals width of "00" + 5 in 1.17
         private int getIndexAreaWidth() {
-            return mc.fontRenderer.getStringWidth("00") + 5;
+            return mc.fontRendererObj.getStringWidth("00") + 5;
         }
 
         void setText(String text) { this.text = text; }
         void setIndex(int index) { this.index = index; }
 
         int getTextWidth() {
-            return mc.fontRenderer.getStringWidth(text);
+            return mc.fontRendererObj.getStringWidth(text);
         }
 
         int getContentHeight() {
-            return mc.fontRenderer.FONT_HEIGHT;
+            return mc.fontRendererObj.FONT_HEIGHT;
         }
 
         int getTotalWidth() {
@@ -114,13 +114,13 @@ public class WidgetCandidateList extends Widget {
 
             String idx = Integer.toString(index);
             int indexAreaW = getIndexAreaWidth();
-            int idxTextW = mc.fontRenderer.getStringWidth(idx);
+            int idxTextW = mc.fontRendererObj.getStringWidth(idx);
             int centeredX = offsetX + (indexAreaW - idxTextW) / 2;
-            mc.fontRenderer.drawString(idx, centeredX, baselineY, 0xFF555555);
+            mc.fontRendererObj.drawString(idx, centeredX, baselineY, 0xFF555555);
 
             // 渲染text
             offsetX += indexAreaW;
-            mc.fontRenderer.drawString(text, offsetX, baselineY, textColor);
+            mc.fontRendererObj.drawString(text, offsetX, baselineY, textColor);
         }
     }
 }

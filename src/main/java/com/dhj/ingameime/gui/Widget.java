@@ -25,7 +25,7 @@ public class Widget extends Gui {
         X = offsetX;
         Y = offsetY;
         if (!DrawInline) {
-            Y += Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT;
+            Y += Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
         }
 
         ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft());

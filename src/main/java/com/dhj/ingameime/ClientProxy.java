@@ -29,8 +29,8 @@ public class ClientProxy extends CommonProxy implements IMEventHandler {
 
             GuiTextField textField = (GuiTextField) IMStates.ActiveControl;
 
-            int x = textField.x;
-            int y = textField.y;
+            int x = textField.xPosition;
+            int y = textField.yPosition;
 
             ClientProxy.Screen.setCaretPos(x, y);
         }
