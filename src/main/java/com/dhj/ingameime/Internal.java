@@ -125,13 +125,37 @@ public class Internal {
                 try {
                     Minecraft.getMinecraft().addScheduledTask(() -> {
                         try {
-                            if (Loader.isModLoaded("jei") && IMStates.ActiveControl instanceof net.minecraft.client.gui.GuiTextField &&
+                            if (Loader.isModLoaded("JEI") && IMStates.ActiveControl instanceof net.minecraft.client.gui.GuiTextField &&
                                     IMStates.ActiveControl.getClass().getName().equals("mezz.jei.input.GuiTextFieldFilter")) {
 
-                                LOG.info("JEI text field detected, using GuiTextField.writeText().");
+                                LOG.info("JEI text field detected, attempting to set text via official API.");
 
-                                net.minecraft.client.gui.GuiTextField jeiTextField = (net.minecraft.client.gui.GuiTextField) IMStates.ActiveControl;
-                                jeiTextField.writeText(text);
+                                net.minecraft.client.gui.GuiTextField activeTextField = (net.minecraft.client.gui.GuiTextField) IMStates.ActiveControl;
+
+                                String currentText = activeTextField.getText();
+                                int cursorPosition = activeTextField.getCursorPosition();
+                                int selectionEnd = activeTextField.getSelectionEnd();
+
+                                String newText;
+
+                                if (cursorPosition != selectionEnd) {
+                                    int start = Math.min(cursorPosition, selectionEnd);
+                                    int end = Math.max(cursorPosition, selectionEnd);
+                                    newText = new StringBuilder(currentText).replace(start, end, text).toString();
+                                } else {
+                                    newText = new StringBuilder(currentText).insert(cursorPosition, text).toString();
+                                }
+
+                                int newCursorPosition;
+                                if (cursorPosition != selectionEnd) {
+                                    newCursorPosition = Math.min(cursorPosition, selectionEnd) + text.length();
+                                } else {
+                                    newCursorPosition = cursorPosition + text.length();
+                                }
+//                                net.minecraft.client.gui.GuiTextField jeiTextField = (net.minecraft.client.gui.GuiTextField) IMStates.ActiveControl;
+//                                jeiTextField.writeText(text);
+                                JEICompat.setJEIFilterText(newText);
+                                activeTextField.setCursorPosition(newCursorPosition);
 
                             } else {
                                 final GuiScreen screen = Minecraft.getMinecraft().currentScreen;
