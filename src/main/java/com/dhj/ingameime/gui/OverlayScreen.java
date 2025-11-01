@@ -26,22 +26,20 @@ public class OverlayScreen extends Widget {
         if (!isActive()) return;
 
         GlStateManager.pushMatrix();
-
+        GlStateManager.disableLighting();
         GlStateManager.disableDepth();
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         GlStateManager.enableBlend();
         // 使用 GL11 的整型常量替换原来的枚举
         GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ZERO);
-
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-
         GlStateManager.translate(0, 0, 30f);
 
         PreEdit.draw();
         CandidateList.draw();
         WInputMode.draw();
 
-        GlStateManager.disableBlend();
         GlStateManager.enableDepth();
+        GlStateManager.disableBlend();
 
         GlStateManager.popMatrix();
     }
