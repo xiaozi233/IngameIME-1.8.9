@@ -14,13 +14,12 @@ import org.lwjgl.input.Mouse;
 
 import javax.annotation.Nonnull;
 
-import static org.lwjgl.input.Keyboard.KEY_HOME;
-
 public class ClientProxy extends CommonProxy implements IMEventHandler {
     public static ClientProxy INSTANCE = null;
     public static OverlayScreen Screen = new OverlayScreen();
-    public static KeyBinding KeyBind = new KeyBinding("ingameime.key.desc", KEY_HOME, "IngameIME");
-    public static IMEventHandler IMEventHandler = IMStates.Disabled;
+
+    private static final KeyBinding KeyBind = new KeyBinding("ingameime.key.desc", Keyboard.KEY_NONE, "In game IME");
+    private static IMEventHandler IMEventHandler = IMStates.Disabled;
     private static boolean IsKeyDown = false;
 
     @SubscribeEvent
@@ -29,7 +28,7 @@ public class ClientProxy extends CommonProxy implements IMEventHandler {
         ClientProxy.Screen.setCaretPos(IMStates.getActiveControl().getCursorX(), IMStates.getActiveControl().getCursorY());
         ClientProxy.Screen.draw();
 
-        if (Keyboard.isKeyDown(ClientProxy.KeyBind.getKeyCode())) {
+        if (KeyBind.isKeyDown()) {
             IsKeyDown = true;
         } else if (IsKeyDown) {
             IsKeyDown = false;
@@ -43,7 +42,7 @@ public class ClientProxy extends CommonProxy implements IMEventHandler {
         }
     }
 
-    public void preInit(FMLPreInitializationEvent event) {
+    public void preInit(@Nonnull FMLPreInitializationEvent event) {
         INSTANCE = this;
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         ClientRegistry.registerKeyBinding(KeyBind);
@@ -59,8 +58,8 @@ public class ClientProxy extends CommonProxy implements IMEventHandler {
     }
 
     @Override
-    public IMStates onControlFocus(@Nonnull IControl control, boolean focused) {
-        IMEventHandler = IMEventHandler.onControlFocus(control, focused);
+    public IMStates onControlFocus(@Nonnull IControl control, boolean focused, boolean isOverlay) {
+        IMEventHandler = IMEventHandler.onControlFocus(control, focused, isOverlay);
         return null;
     }
 
