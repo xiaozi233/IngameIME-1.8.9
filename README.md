@@ -1,43 +1,37 @@
-# Architectury Loom based template for 1.8.9 forge mods
+# IngameIME-Minecraft-1.12.2
 
-**For other templates, do check out the [other branches of this repository](https://github.com/romangraef/Forge1.8.9Template/branches/all)**
+![Icon](src/main/resources/assets/ingameime/logo.png)
 
-## Usage
+Use `InputMethod` in **Full screen** Minecraft!
 
-Check out https://moddev.nea.moe/ for a full tutorial on legacy modding.
+![CurseForge Bandage Downloads](http://cf.way2muchnoise.eu/full_1281907_downloads.svg)
+[![Modrinth Bandage Downloads](https://img.shields.io/badge/dynamic/json?labelColor=black&color=grey&label=&suffix=%20downloads&query=downloads&url=https://api.modrinth.com/v2/project/DqGLeBcL&style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAJPUExURQAAABvZahWnUha1WAYzGQlHIxvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZahvZav///9ScwmYAAADDdFJOUwAAAAAAAA8zW3uOYwIBK3rB6Pn+ml18KiGL5HEDquOIH07R/UzKz2zu+uLHIibtafWkVCMNBRqg7/RQuT8EQbvT+5ETDBSU/NAgCSdZlcQKii7mtxJY5fF/7D1SRkB+EcWh4UilOOtPMdTCR1PqN969vmGDCw7G4DSSsAcGHrSPr3bds5CEwDKoXumcZdwcG4KmjayX32A79pjOqRjIFoXynVYVgPi6qxDnL78p2obVJFquNbGZCPdyvHPZ1yhuh8s+iRzcsrEAAAABYktHRMQUDBvhAAAAB3RJTUUH5wQXDwgZWDUtiQAAAqRJREFUOMttU/k7lFEU/k4L4hsxtNAnhRgiJZOiSfbI2oJpmRFCi2kV0aaNVLTIEpVISmnf97r/WO+534yZnqfzw73vOe+559xz7rmKIoVYvLx95vj6qUSqVBW3sGrwnxsQaAwSwcDz5i9g0wxPfmFIqJCyiEgLE4vDl7iD8PGlETotIqOQahlAdJTLA5sWY5JsbNzysHiihEBWViRqRDOlgyFmJVtMq5JWJ5vhvyZlLevrEmUILKl8PihtvYWcYt6QLmNwFjjEb4SSkZnlZLO5yJzcPBg35bODwZfPZxYwWbC5sKjYzwBUkssxSg1wKNsCtHUb89vTy3GwopBxDmcJ9YdDJYB1B9t2WmUtcbtkqt18Mxsp9irsezS2VEu+uka/mqUWSrFd2VsnhLEetoZ9TFv3HwCexdUdjBWi0aH4YTuEvtoPM3/EO1nnuTpEjD2qHIM54DhR0wmA5hZySzIntyknsbZyi8IB0tp07tRpBDKfgeWsdDjHDlFGRIjnl3O0t573gcMFUBeVS1gvlxB1dOZxv0pIu9IF01UDZRdjr1SuZQhxvbvnRrmsMePmrdsrGPRaKP8OLtmn9KM7A4N3xb8yNExUb5RlZt2btpZbXajzPoYkBaDKrtADp3HkYdloo56ndgx37UcHxSP0tIWBGH9cg1nx6TJFTNhS7eCfcA1PJ+GgDbLDs2GuX3V05Ohj0xYSBGumyq/yfApw4EWTRxPJqxQvIF6+ks9Gr0d4nN+8Nbhoi+NdJEwVSc6hVNvHOUvg+5qeDxoP3GQz6x8/qXLuZ6Op7SPy+gNTnydSELabk1Z8Mbs/hlr4dbobfUgxJMS3UdXza9H33jqnA3/OH41FCZ7/l7HW8vOXiWc9GvPf06D953/T2O/EP8HBNtcH0Zm/lqFNUgTAex4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDQtMjNUMTU6MDg6MjQrMDA6MDAE5dOaAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTA0LTIzVDE1OjA4OjI0KzAwOjAwdbhrJgAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wNC0yM1QxNTowODoyNSswMDowMITaQU0AAAAASUVORK5CYII=)](https://modrinth.com/mod/ingameime-vintage)
+![CurseForge Bandage Versions](http://cf.way2muchnoise.eu/versions/1281907.svg)
 
-Alternatively, read here for a basic overview on how to use this repository.
+## Preview
 
-To get started, [Use this template](https://github.com/new?template_name=Forge1.8.9Template&template_owner=nea89o).
+### Full screen Mode
 
-> [!WARNING]
-> Do not Fork or Clone or Download ZIP this template. If you "use" this template a custom mod id will be generated. You can do that manually using the `make-my-own` script, if you are on linux. If not, just click the use this template button. If you want to use kotlin or make a 1.12 mod check the "Include all branches" and change the default branch in https://github.com/yourname/yourreponame/branches
+![Full screen Mode](docs/FullScreenInput.gif)
 
-This project uses [DevAuth](https://github.com/DJtheRedstoner/DevAuth) per default, so you can log in using your real
-minecraft account. If you don't need that, you can remove it from the buildscript.
+## Special Thanks
+- [Windmill-City](https://github.com/Windmill-City):Mod founder
+- [Kappa-maintainer](https://github.com/kappa-maintainer):The biggest contributor, helped with most of the bugs and provided solutions
+- [tttsaurus](https://github.com/tttsaurus):Helped to fix the bug of InGameInfoXML 
+- [Andrea Frederica](https://github.com/AndreaFrederica):Patched a possible unknown crash issue with LoliASM(maybe
+- [Live-Block](https://github.com/Live-Block):Provides 1.17 UI and cursor following port
+- There will be more in the future :)
 
-To run the mod you will need two JDKs, one Java 17 jdk and one Java 1.8 jdk. You can download those
-from [here](https://adoptium.net/temurin/releases) (or use your own downloads).
+## Bug
+- Unable to enter in the search box of JEI/HEI(Fixed in 0.0.7)
+- Unable to enter text in Xaero's Minimap interface(Fixed in 0.0.9)
+- Can't type text into Minecraft signs(Fixed in 0.1.0)
+- Mixin errors will occur when used with [RandomPatches](https://www.curseforge.com/minecraft/mc-mods/randompatches-forge) (please use [Universal Tweaks](https://www.curseforge.com/minecraft/mc-mods/universal-tweaks) instead of this mod's functionality, or set patchMinecraftClass=false in config/randompatches.cfg
 
-When you import your project into IntelliJ, you need to set the gradle jvm to the Java 17 JDK in the gradle tab, and the
-Project SDK to the Java 1.8 JDK. Then click on the sync button in IntelliJ, and it should create a run task
-called `Minecraft Client`. If it doesn't then try relaunching your IntelliJ. **Warning for Mac users**: You might have to remove the `-XStartOnFirstThread` vm argument from your run configuration. In the future, that should be handled by the plugin, but for now you'll probably have to do that manually.
+## Supported Platforms
 
-To export your project, run the `gradle build` task, and give other people the
-file `build/libs/<modid>-<version>.jar`. Ignore the jars in the `build/badjars` folder. Those are intermediary jars that
-are used by the build system but *do not work* in a normal forge installation.
-
-If you don't want mixins (which allow for modifying vanilla code), then you can remove the references to mixins from
-the `build.gradle.kts` at the lines specified with comments and the `com.example.mixin` package.
-
-If you don't want access transformers (which allow for making methods public/non-final) you can delete the
-`accesstransformer.cfg` file. If you make a change to the `accesstransformers.cfg` you might need to rebuild your
-project using `./gradlew build --refresh-dependencies`.
-
-### For those who have not an attention span
-
-[![Youtube Tutorial](https://i.ytimg.com/vi/nWzHlomdCgc/maxresdefault.jpg)](https://www.youtube.com/watch?v=nWzHlomdCgc)
-
-## Licensing
-
-This template is licensed under the Unlicense (license copy present in this repository), or alternatively under [Creative Commons 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/), and all contributions and PR to this template are expected to follow this. This means your mod, based on this template can be licensed whatever way you want, and does not need to reference back to this template in any way.
+| Platform | Supported |
+|----------|-----------|
+| Windows  | √         |
+| Linux    | ×         |
+| MacOS    | ×         |
