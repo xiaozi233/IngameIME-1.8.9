@@ -7,9 +7,8 @@
   "mixins": [
   ],
   "client": [
+    "AccessorGuiScreen",
     "AccessorGuiTextField",
-    "MixinGuiEditSign",
-    "MixinGuiScreen",
     "MixinGuiTextField",
     "MixinMinecraft"
   ],
