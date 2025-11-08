@@ -52,7 +52,7 @@ public abstract class AbstractControl<T> implements IControl {
             currentDrawX += font.getStringWidth(rawTextBeforeCursor);
         }
 
-        return currentDrawX;
+        return currentDrawX - 1;
     }
 
     /**
