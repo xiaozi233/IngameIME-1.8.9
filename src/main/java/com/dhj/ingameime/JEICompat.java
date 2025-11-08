@@ -1,7 +1,7 @@
 package com.dhj.ingameime;
 
 import mezz.jei.api.*;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 @JEIPlugin
 public class JEICompat implements IModPlugin {
@@ -19,17 +19,17 @@ public class JEICompat implements IModPlugin {
     }
 
     @Override
-    public void register(@NotNull IModRegistry iModRegistry) {
+    public void register(@Nonnull IModRegistry iModRegistry) {
 
     }
 
     @Override
-    public void onRecipeRegistryAvailable(@NotNull IRecipeRegistry iRecipeRegistry) {
+    public void onRecipeRegistryAvailable(@Nonnull  IRecipeRegistry iRecipeRegistry) {
 
     }
 
     @Override
-    public void onRuntimeAvailable(@NotNull IJeiRuntime runtime) {
+    public void onRuntimeAvailable(@Nonnull IJeiRuntime runtime) {
         JEICompat.jeiRuntime = runtime;
     }
 
