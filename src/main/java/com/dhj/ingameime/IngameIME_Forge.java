@@ -9,8 +9,10 @@ import org.apache.logging.log4j.Logger;
 @Mod(
         modid = IngameIME_Forge.MOD_ID,
         name = IngameIME_Forge.MOD_NAME,
+        clientSideOnly = true,
         acceptedMinecraftVersions = "[1.8.9]",
-        acceptableRemoteVersions = "*"
+        acceptableRemoteVersions = "*",
+        guiFactory = "com.dhj.ingameime.ConfigGuiFactory"
 )
 public class IngameIME_Forge {
     public static final String MOD_ID = "ingameime";

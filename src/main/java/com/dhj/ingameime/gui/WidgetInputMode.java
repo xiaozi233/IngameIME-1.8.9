@@ -40,9 +40,9 @@ public class WidgetInputMode extends Widget {
         Height = Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
 
         if (Mode == InputMode.AlphaNumeric)
-            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(AlphaModeText.getString());
+            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(AlphaModeText);
         else
-            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(NativeModeText.getString());
+            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(NativeModeText);
 
         super.layout();
     }
@@ -56,8 +56,8 @@ public class WidgetInputMode extends Widget {
         super.draw();
 
         if (Mode == InputMode.AlphaNumeric)
-            Minecraft.getMinecraft().fontRendererObj.drawString(AlphaModeText.getString(), X + Padding, Y + Padding, TextColor);
+            Minecraft.getMinecraft().fontRendererObj.drawString(AlphaModeText, X + Padding, Y + Padding, TextColor);
         else
-            Minecraft.getMinecraft().fontRendererObj.drawString(NativeModeText.getString(), X + Padding, Y + Padding, TextColor);
+            Minecraft.getMinecraft().fontRendererObj.drawString(NativeModeText, X + Padding, Y + Padding, TextColor);
     }
 }
