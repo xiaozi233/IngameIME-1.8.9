@@ -1,11 +1,15 @@
 package com.dhj.ingameime.control;
 
 import com.dhj.ingameime.ClientProxy;
-import com.dhj.ingameime.JEICompat;
 import com.dhj.ingameime.mixins.vanilla.AccessorGuiTextField;
+import mezz.jei.api.*;
 import mezz.jei.input.GuiTextFieldFilter;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraftforge.fml.common.Optional;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
 
 public class JEITextFieldControl extends VanillaTextFieldControl<GuiTextFieldFilter> {
 
@@ -20,22 +24,20 @@ public class JEITextFieldControl extends VanillaTextFieldControl<GuiTextFieldFil
         // FIXME: It just works!
         this.controlObject.writeText(text);
         int cursorPos = this.controlObject.getCursorPosition();
-        JEICompat.setJEIFilterText(this.controlObject.getText());
+        Plugin.setJEIFilterText(this.controlObject.getText());
         this.controlObject.setCursorPosition(cursorPos);
     }
 
+    @Nonnull
     @Override
-    public int getCursorX() {
-        AccessorGuiTextField accessor = (AccessorGuiTextField) this.controlObject;
-        return AbstractControl.getCursorX(accessor.getFont(), this.controlObject.getText(),
-                this.controlObject.x, this.controlObject.getWidth(),
-                accessor.getLineScrollOffset(), this.controlObject.getCursorPosition(),
-                true);
-    }
-
-    @Override
-    public int getCursorY() {
-        return AbstractControl.getCursorY(this.controlObject.y, this.controlObject.height, true);
+    public Point getCursorPos() {
+        com.dhj.ingameime.mixins.vanilla.AccessorGuiTextField accessor = (AccessorGuiTextField) this.controlObject;
+        return AbstractControl.getCursorPos(
+                accessor.getFont(), this.controlObject.getText(),
+                this.controlObject.x, this.controlObject.y, this.controlObject.width, this.controlObject.height,
+                accessor.getLineScrollOffset(), this.controlObject.getCursorPosition(), this.controlObject.getSelectionEnd(),
+                true
+        );
     }
 
     /**
@@ -51,5 +53,45 @@ public class JEITextFieldControl extends VanillaTextFieldControl<GuiTextFieldFil
             return true;
         }
         return false;
+    }
+
+    @JEIPlugin
+    public static class Plugin implements IModPlugin {
+        private static IJeiRuntime jeiRuntime;
+
+        // Necessary to stop JEI erroring
+        public Plugin() {
+        }
+
+        public static void setJEIFilterText(String text) {
+            if (jeiRuntime != null) {
+                jeiRuntime.getItemListOverlay().setFilterText(text);
+            }
+        }
+
+        @Override
+        public void onJeiHelpersAvailable(IJeiHelpers iJeiHelpers) {
+
+        }
+
+        @Override
+        public void onItemRegistryAvailable(IItemRegistry iItemRegistry) {
+
+        }
+
+        @Override
+        public void register(@NotNull IModRegistry iModRegistry) {
+
+        }
+
+        @Override
+        public void onRecipeRegistryAvailable(@NotNull IRecipeRegistry iRecipeRegistry) {
+
+        }
+
+        @Override
+        public void onRuntimeAvailable(@Nonnull IJeiRuntime runtime) {
+            jeiRuntime = runtime;
+        }
     }
 }
