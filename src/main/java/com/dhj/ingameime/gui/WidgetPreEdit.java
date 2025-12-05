@@ -4,6 +4,7 @@ import com.dhj.ingameime.ClientProxy;
 import com.dhj.ingameime.Internal;
 import ingameime.PreEditRect;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 
 public class WidgetPreEdit extends Widget {
     private final int CursorWidth = 3;
@@ -21,8 +22,9 @@ public class WidgetPreEdit extends Widget {
     public void layout() {
         if (!isDirty) return;
         if (isActive()) {
-            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(Content) + CursorWidth;
-            Height = Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
+            FontRenderer font = Minecraft.getMinecraft().fontRendererObj;
+            Width = font.getStringWidth(Content) + CursorWidth;
+            Height = font.FONT_HEIGHT;
         } else {
             Width = Height = 0;
         }
@@ -54,11 +56,12 @@ public class WidgetPreEdit extends Widget {
     public void draw() {
         if (!isActive()) return;
         super.draw();
+        FontRenderer font = Minecraft.getMinecraft().fontRendererObj;
         String beforeCursor = Content.substring(0, Cursor);
         String afterCursor = Content.substring(Cursor);
-        int x = Minecraft.getMinecraft().fontRendererObj.drawString(beforeCursor, X + Padding, Y + Padding, TextColor);
+        int x = font.drawString(beforeCursor, X + Padding, Y + Padding, TextColor);
         // Cursor
         drawRect(x + 1, Y + Padding, x + 2, Y + Padding + Height, TextColor);
-        Minecraft.getMinecraft().fontRendererObj.drawString(afterCursor, x + CursorWidth, Y + Padding, TextColor);
+        font.drawString(afterCursor, x + CursorWidth, Y + Padding, TextColor);
     }
 }

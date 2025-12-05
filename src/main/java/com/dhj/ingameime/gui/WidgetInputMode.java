@@ -2,6 +2,7 @@ package com.dhj.ingameime.gui;
 
 import ingameime.InputMode;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 
 import static com.dhj.ingameime.Config.AlphaModeText;
 import static com.dhj.ingameime.Config.NativeModeText;
@@ -37,12 +38,14 @@ public class WidgetInputMode extends Widget {
     public void layout() {
         if (!isDirty) return;
 
-        Height = Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
+        FontRenderer font = Minecraft.getMinecraft().fontRendererObj;
+
+        Height = font.FONT_HEIGHT;
 
         if (Mode == InputMode.AlphaNumeric)
-            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(AlphaModeText);
+            Width = font.getStringWidth(AlphaModeText);
         else
-            Width = Minecraft.getMinecraft().fontRendererObj.getStringWidth(NativeModeText);
+            Width = font.getStringWidth(NativeModeText);
 
         super.layout();
     }
