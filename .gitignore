@@ -4,3 +4,11 @@ run/
 build/
 .gradle/
 
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+layout.json
