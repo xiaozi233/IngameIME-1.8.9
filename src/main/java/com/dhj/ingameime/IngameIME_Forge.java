@@ -1,6 +1,5 @@
 package com.dhj.ingameime;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -23,6 +22,5 @@ public class IngameIME_Forge {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
-        MinecraftForge.EVENT_BUS.register(new FluxCompat());
     }
 }
