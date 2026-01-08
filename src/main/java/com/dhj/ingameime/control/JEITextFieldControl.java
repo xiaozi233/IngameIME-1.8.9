@@ -13,7 +13,7 @@ import java.awt.*;
 
 public class JEITextFieldControl extends VanillaTextFieldControl<GuiTextFieldFilter> {
 
-    public static final String JEI_MOD_ID = "jei";
+    public static final String JEI_MOD_ID = "JEI";
 
     protected JEITextFieldControl(GuiTextFieldFilter control) {
         super(control);
@@ -34,7 +34,7 @@ public class JEITextFieldControl extends VanillaTextFieldControl<GuiTextFieldFil
         com.dhj.ingameime.mixins.vanilla.AccessorGuiTextField accessor = (AccessorGuiTextField) this.controlObject;
         return AbstractControl.getCursorPos(
                 accessor.getFont(), this.controlObject.getText(),
-                this.controlObject.x, this.controlObject.y, this.controlObject.width, this.controlObject.height,
+                this.controlObject.xPosition, this.controlObject.yPosition, this.controlObject.width, this.controlObject.height,
                 accessor.getLineScrollOffset(), this.controlObject.getCursorPosition(), this.controlObject.getSelectionEnd(),
                 true
         );

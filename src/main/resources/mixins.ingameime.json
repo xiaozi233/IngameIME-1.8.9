@@ -7,10 +7,10 @@
   "mixins": [
   ],
   "client": [
-    "AccessorGuiScreen",
-    "AccessorGuiTextField",
-    "MixinGuiTextField",
-    "MixinMinecraft"
+    "vanilla.AccessorGuiScreen",
+    "vanilla.AccessorGuiTextField",
+    "vanilla.MixinGuiTextField",
+    "vanilla.MixinMinecraft"
   ],
   "injectors": {
     "defaultRequire": 0

@@ -9,12 +9,15 @@
     "updateUrl": "",
     "authorList": [
       "Windmill_City",
-      "DHJComical",
-      "xiaozi0721"
+      "DHJComical"
     ],
-    "credits": "",
-    "logoFile": "icon.png",
+    "credits":
+      "RuiXuqi, Andrea Frederica, Circulate233, xiaozi0721",
+    "license": "LGPL-2.1",
+    "logoFile": "assets/ingameime/logo.png",
+    "iconFile": "assets/ingameime/icon.png",
     "screenshots": [],
-    "dependencies": []
+    "dependencies": [],
+    "useDependencyInformation": false
   }
 ]

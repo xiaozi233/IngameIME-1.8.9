@@ -12,14 +12,15 @@ import java.util.List;
 
 public class ConfigGui extends GuiConfig {
     public ConfigGui(GuiScreen parent) {
-        super(parent, getConfigElements(), Tags.MOD_ID, false, false, Tags.MOD_NAME);
+        super(parent, getConfigElements(), IngameIME_Forge.MOD_ID, false, false, "In Game IME Configuration"); // 标题
     }
 
     private static @Nonnull List<IConfigElement> getConfigElements() {
         List<IConfigElement> list = new ArrayList<>();
         Configuration config = Config.getConfig();
-        for (String category : Config.CATEGORIES) {
-            list.addAll(new ConfigElement(config.getCategory(category)).getChildElements());
+        for (String catName : Config.CATEGORIES) {
+            net.minecraftforge.common.config.ConfigCategory category = config.getCategory(catName);
+            list.add(new ConfigElement(category));
         }
         return list;
     }

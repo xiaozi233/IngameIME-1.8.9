@@ -88,8 +88,8 @@ public abstract class AbstractControl<T> implements IControl {
         Point position = getCursorPos(font, text, x, y, width, height, lineScrollOffset, cursorPosition, selectionEnd, enableBackgroundDrawing);
         if (screen instanceof GuiContainer) {
             GuiContainer container = (GuiContainer) screen;
-            position.x += container.getGuiLeft();
-            position.y += container.getGuiTop();
+            position.x += container.guiLeft;
+            position.y += container.guiTop;
         }
         return position;
     }

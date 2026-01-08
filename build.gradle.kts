@@ -88,7 +88,7 @@ dependencies {
     // If you don't want to log in with your real minecraft account, remove this line
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
 
-    api("curse.maven:jei-238222:2431977")
+    modImplementation ("curse.maven:jei-238222:2431977")
 
 }
 

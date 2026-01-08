@@ -59,7 +59,7 @@ public class ClientProxy extends CommonProxy implements IMEventHandler {
 
     @SubscribeEvent
     public void onConfigChanged(@Nonnull ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.getModID().equals(Tags.MOD_ID)) {
+        if (event.modID.equals(IngameIME_Forge.MOD_ID)) {
             Config.sync();
         }
     }
